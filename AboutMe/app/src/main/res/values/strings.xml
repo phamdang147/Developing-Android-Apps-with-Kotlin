@@ -2,4 +2,15 @@
     <string name="app_name">About Me</string>
     <string name="name">Pham Dang</string>
     <string name="yellow_star">Yellow Star</string>
+    <string name="bio">Hello, My name is Dang.
+    \n\nI am twenty years old.
+    \n\nI live in Bac Ninh.
+    \n\nI study in University of Engineering and Technology.
+    \n\nMy major is computer engineering.
+    \n\nNow I am studying Developing Android app with Kotlin.
+    \n\nI am twenty years old.
+    \n\nI live in Bac Ninh.
+    \n\nI study in University of Engineering and Technology.
+    \n\nMy major is computer engineering.
+    \n\nNow I am studying Developing Android app with Kotlin.\n\n</string>
 </resources>
