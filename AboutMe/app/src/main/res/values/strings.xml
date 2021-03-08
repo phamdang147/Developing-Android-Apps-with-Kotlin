@@ -13,4 +13,5 @@
     \n\nI study in University of Engineering and Technology.
     \n\nMy major is computer engineering.
     \n\nNow I am studying Developing Android app with Kotlin.\n\n</string>
+    <string name="what_is_your_nickname">What is your Nickname?</string>
 </resources>
