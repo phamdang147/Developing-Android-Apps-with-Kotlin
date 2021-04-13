@@ -28,6 +28,7 @@ import com.example.android.trackmysleepquality.databinding.ListItemSleepNightBin
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 private const val ITEM_VIEW_TYPE_HEADER = 0
 private const val ITEM_VIEW_TYPE_ITEM = 1
@@ -44,7 +45,15 @@ class SleepNightAdapter(val clickListener: SleepNightListener): ListAdapter<Data
     }
 
     fun addHeaderAndSubmitList(list: List<SleepNight>?) {
-        adapterScope.launch {  }
+        adapterScope.launch {
+            val items = when (list) {
+                null -> listOf(DataItem.Header)
+                else -> listOf(DataItem.Header) + list.map { DataItem.SleepNightItem(it) }
+            }
+            withContext(Dispatchers.Main) {
+                submitList(items)
+            }
+        }
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -60,7 +69,7 @@ class SleepNightAdapter(val clickListener: SleepNightListener): ListAdapter<Data
         return when (viewType) {
             ITEM_VIEW_TYPE_HEADER -> TextViewHolder.from(parent)
             ITEM_VIEW_TYPE_ITEM -> ViewHolder.from(parent)
-            else -> throw ClassCastException("Unknow viewType ${viewType}")
+            else -> throw ClassCastException("Unknown viewType ${viewType}")
         }
     }
 
